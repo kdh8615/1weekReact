@@ -6,11 +6,11 @@ import Done from "./Todo/Done";
 function App() {
   const [work, setWork] = useState([
     { id: 1, title: "리액트", body: "리액트", isDone: false },
-    { id: 2, title: "리액트1", body: "리액트1", isDone: true },
+    { id: 2, title: "리액트1", body: "리액트1", isDone: false },
   ]);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [isDone, setisDone] = useState(false);
+  // const [isDone, setisDone] = useState(false);
 
   const AddHandler = () => {
     const newWorkList = {
@@ -28,12 +28,12 @@ function App() {
   };
 
   const clears = (id) => {
-    setisDone(!isDone);
+    // setisDone(!isDone);
     const newList = work.map((work) => {
       if (work.id === id) {
         return {
           ...work,
-          isDone: isDone,
+          isDone: !work.isDone,
         };
       } else {
         return {
